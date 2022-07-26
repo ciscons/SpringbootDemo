@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h3>block 구문과 a 링크</h3>
+	
+	<!-- thymeleaf의 block 구문은 별도의 태그 내에 녹여서 쓰지 않고 처리해주는 방법이다. -->
+	<ul>
+		<th:block th:each="a : ${aaa}" th:if="${a.sno % 3 == 0}">
+			<li>[[${a}]]</li>
+			
+		</th:block>
+	</ul>	
+</body>
+</html>

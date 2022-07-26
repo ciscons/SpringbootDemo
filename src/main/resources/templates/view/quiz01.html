@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<!-- 반복문과, 조건문을 같이 사용할 수 있습니다~ -->
+	<ul>
+		<li th:each="a : ${aaa}" th:if="${a.sno % 3 == 0}">[[${a}]]</li>
+	</ul>
+	
+</body>
+</html>
