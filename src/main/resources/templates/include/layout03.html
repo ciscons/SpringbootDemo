@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<!-- 템플릿 사용방법 - 함수(변수) -->
+<body th:fragment="함수(section01, section02)">
+	<h3>타임리프를 템플릿 형식으로 사용하기</h3>
+
+	<header>
+		<h3>헤더에 대한 내용...</h3>
+	</header>
+
+
+	<section>
+		<th:block th:replace="${section01}"></th:block>
+	</section>
+
+	<section>
+		<th:block th:replace="${section02}"></th:block>	
+	</section>
+
+	<footer>
+		<h3>푸터에 대한 내용...</h3>
+	</footer>
+
+
+
+</body>
+</html>

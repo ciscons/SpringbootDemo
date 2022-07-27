@@ -12,8 +12,20 @@
 	<ul>
 		<th:block th:each="a : ${aaa}" th:if="${a.sno % 3 == 0}">
 			<li>[[${a}]]</li>
-			
 		</th:block>
 	</ul>	
+	
+	<a href="result">기존의 사용방법</a>
+	<!-- 절대 경로를 나타낸다. ( / 슬래쉬로 시작한다.), 상대 경로는 지금 있는 위치에서 하위로 내리거나 상위로 올려서 이동하는 방법이다. -->
+	
+	<a href="/view/result?sno=1&first=홍길동">기존</a>	
+	
+	
+	<h3>thymeleaf a 태그로 값 넘기기</h3>
+	<!-- <a th:href="@{result}">값이 없는 경우</a>
+	<a th:href="@{result(키=값)}">값이 있는 경우</a>
+	<a th:href="@{result(sno=1, first='홍길동')}">값이 있는 경우</a> -->
+	<!-- <a href="/view/result02/1/홍길동">pathvariable</a> -->
+	<a th:href="@{/view/result02/{sno}/{first}(sno=1, first=가)}">thymeleaf a tag</a>
 </body>
 </html>

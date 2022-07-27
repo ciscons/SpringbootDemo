@@ -32,8 +32,11 @@ dependencies {
 	//jsp를 뷰로 채택하려면 추가
 	//implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper'
 	//implementation group: 'javax.servlet', name: 'jstl'
-	
+	// 타임리프 모듈
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	// 스프링 유효성 검사
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	
 }
 
 tasks.named('test') {

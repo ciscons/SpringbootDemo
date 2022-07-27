@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<!-- layout03에 있는 구문을 호출시키는 함수 -->
+	<th:block th:replace="~{./include/layout03 :: 함수( ~{:: #first}, ~{:: .second})}">
+	
+		<div id="first">
+			id의 선택자는 #입니다.
+		</div>
+		
+		<div class="second">
+			class 선택자는 .입니다.
+		</div>
+	
+	</th:block>
+	
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>thymeleaf의 inline="javascript"</h3>
+	[[${vo}]]<hr>
+	
+	<script	th:inline="javascript">
+		var value_Json = [[${vo}]];
+		if(Object.prototype.toString.call(value_Json) === "[object JSON]"){
+			console.log("JSON 타입입니다.");
+		}else{
+			console.log("JSON 타입이 아닙니다.");
+		}
+		
+		
+		console.log([[${vo}]] );
+	</script>
+</body>
+</html>
