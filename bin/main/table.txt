@@ -1,0 +1,8 @@
+#생성 시 DB 클릭 후 Ctrl + Enter
+CREATE TABLE board(
+	bno INT PRIMARY KEY AUTO_INCREMENT,
+    writer VARCHAR(50) NOT NULL,
+    title VARCHAR(300),
+    content VARCHAR(300),
+    regdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
+);
