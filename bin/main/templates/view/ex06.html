@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h3>타임리프 인클루드 형식</h3>
+	<!-- ~{./전체경로 :: 이름} -->
+	<div th:replace="~{./include/layout01 :: part1}">
+	
+	</div>
+	
+	<div th:replace="~{./include/layout01 :: part2}"></div>
+	
+	<hr>
+	<th:block th:replace="~{./include/layout02 }"></th:block>
+	
+	</div> 
+</body>
+</html>

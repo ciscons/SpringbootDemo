@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>타임리프 문법</h3>
+	
+	<h3 th:text="${'hello world'}"></h3>
+	<h3>[[${'hello world'}]]</h3>
+	
+	<h3 th:text="${1 == 1}"></h3>
+	<h3>[[${1 == 1}]]</h3>
+	
+	<div th:with="var = '홍길동' ">
+		[[${var}]]
+	</div>
+	<div th:with="a = 10">
+		<span th:if="${a < 10}">참입니다.</span>
+		<span th:unless="${a < 10}">거짓입니다.</span> <!-- unless는 if 조건 구문과 동일하게 적어줘야 한다. -->
+	</div>
+	
+	<h3>삼항연산자</h3>
+	<div th:with="a = 20">
+		[[${a} > 20 ? '큽니다.' : '작습니다.']] <!-- EL은 무조건 중괄호 안에 넣어야 했지만, thymeleaf는 위 아래 모두 가능하다. -->
+		[[${a > 20 ? '참' : '거짓'}]]	
+	</div>
+	
+	
+	
+</body>
+</html>
