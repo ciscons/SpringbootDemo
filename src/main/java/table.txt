@@ -1,3 +1,16 @@
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/spring?serverTimezone=Asia/Seoul
+spring.datasource.username=계정명
+spring.datasource.password=비밀번호
+
+####
+create database spring default character set utf8;
+
+create user 'spring' identified by 'spring';
+
+grant all privileges on spring.* to 'spring'; 
+####
+
 #생성 시 DB 클릭 후 Ctrl + Enter
 CREATE TABLE board(
 	bno INT PRIMARY KEY AUTO_INCREMENT,

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+
+<body>
+    <!--공개글인 경우는 -->
+    <h3>메모 내용</h3>
+
+    <form>
+        번호:<input type="text" th:value="${vo.mno}" readonly><br>
+        연락처:<input type="text" th:value="${vo.phone}" readonly><br>
+        메모:<textarea readonly>[[${vo.memo}]]</textarea><br>
+		<button type="button" th:onclick="|location.href='memoDelete?mno=${vo.mno}'|">삭제</button>
+    </form>
+
+    <a th:href="@{memoList}">메모목록</a>
+
+	<script th:inline="javascript">
+		var msg = JSON.parse('[[${msg}]]');
+		if(msg != null) {
+			alert(msg);
+		}
+	</script>
+
+</body>
+
+</html>

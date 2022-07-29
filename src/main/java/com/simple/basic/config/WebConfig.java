@@ -6,14 +6,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration //스프링 설정파일로 선언
 public class WebConfig implements WebMvcConfigurer {
 	
-	
-	
-	
-	
-	
-	
-	
-	
 	//스프링 설정파일로 사용할 클래스 (webmvcconfiguer를 상속받습니다)
 	
 	//ioc컨테이너 안에 생성된 객체들을 확인할 수 있는 인터페이스

@@ -3,27 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 </head>
 <body>
+
 	<h3>글 목록</h3>
 	
 	<table>
 		<tr>
-			<th>번호 </th>
+			<th>번호</th>
 			<th>작성자</th>
 			<th>제목</th>
 			<th>내용</th>
 			<th>비고</th>
 		</tr>
-		<tr>
-			<td>~~~</td>
-			<td>~~~</td>
-			<td>~~~~</td>
-			<td>~~~~</td>
-			<td><button type="button">삭제</button></td>
+		
+		<tr th:each="vo : ${list}">
+			<td>[[${vo.bno}]]</td>
+			<td>[[${vo.writer}]]</td>
+			<td>
+				<!-- 이글에 대한 정보를 가지고 boardDetail화면으로 이동 -->
+				<a th:href="@{boardDetail(bno=${vo.bno} ) }">[[${vo.title}]]</a>
+			</td>
+			<td>[[${vo.content}]]</td>
+			<td><button type="button" th:onclick="|location.href='boardDelete?bno=${vo.bno}'|">삭제</button></td>
 		</tr>
+		
 	</table>
+	
+	<a th:href="@{boardRegist}">등록하기</a>
 
-	<a href="#">등록하기</a>
+	
+	<script th:inline="javascript">
+		var msg = JSON.parse('[[${msg}]]');
+		if(msg != null) {
+			alert(msg);
+		}
+	</script>
+	
+	
+	
+	
+	
 </body>
 </html>
+

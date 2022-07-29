@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.simple.basic.service.memo.MemoMapper">
+
+	<select id="getList" resultType="MemoVO"> 
+		SELECT * FROM memo ORDER BY mno DESC 
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO memo(memo, phone, pw, secret) VALUES(#{memo}, #{phone}, #{pw}, #{secret})
+	</insert>
+	
+	<select id="getDetail" resultType="MemoVO">
+		SELECT * FROM memo WHERE mno = #{mno} 
+	</select>
+	
+	<delete id="delete">
+		DELETE FROM memo WHERE mno = #{mno}
+	</delete>
+	
+</mapper>

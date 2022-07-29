@@ -23,4 +23,20 @@
 		values(#{writer}, #{title}, #{content})
 	</insert>
 	
+	<!-- resultType에는 하나의 행에 대한 처리를 작성해야 함 -->
+	<!-- 아래와 같이 단축명(VO의 클래스 명)으로 사용할 수도 있다. 다른 어딘가에는 전체 페키지 명이 선언되어 있을 것이다. -->
+<!-- <select id="getList" resultType="com.simple.basic.command.BoardVO"> --> 
+	<select id="getList" resultType="BoardVO"> 
+		SELECT * FROM board ORDER BY bno DESC 
+	</select>
+	
+	<!-- serviceImpl에서 넘어온 parmeter 값이 단일 값이면 그냥 #{} 안에 써도 된다. -->
+	<select id="getDetail" resultType="BoardVO">
+		SELECT * FROM board WHERE bno = #{bno} 
+	</select>
+	
+	<delete id="delete">
+		DELETE FROM board WHERE bno = #{bno}
+	</delete>
+	
 </mapper>

@@ -1,11 +1,15 @@
 package com.simple.basic.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.simple.basic.command.BoardVO;
 import com.simple.basic.service.board.BoardService;
@@ -26,7 +30,10 @@ public class BoardController {
 
 	// 목록화면
 	@GetMapping("/boardList")
-	public String boardList() {
+	public String boardList(Model model) {
+		
+		List<BoardVO> list = boardService.getList();
+		model.addAttribute("list", list);
 		return "board/boardList";
 	}
 
@@ -59,5 +66,30 @@ public class BoardController {
 		// 화면에 데이터를 가져나갈 필요가 없다면 리다이렉트 방식으로 처리
 		// 스프링에서 redirect 방식은 다시 컨트롤러를 태워 보내는 방식이다.
 		return "redirect:/board/boardResult"; // 결과화면으로
+	}
+	
+	// 상세화면
+	// a 태그로 들어오는 경우 반드시 get 매핑으로만 들어와야 한다.
+	@GetMapping("/boardDetail")
+	public String boardDetail(@RequestParam("bno") int bno,
+							  Model model) {
+		
+		BoardVO vo = boardService.getDetail(bno);
+		model.addAttribute("vo", vo);
+		
+		return "board/boardDetail";
+	}
+	
+	//글 삭제
+	@GetMapping("/boardDelete")
+	public String boardDelete(@RequestParam("bno") int bno, RedirectAttributes RA) {
+//		System.out.println(bno);
+		// redirect는 그대로 return되는 경로로 지정된 controller method로 이동한다.
+		boolean result = boardService.delete(bno);
+		System.out.println(result);
+		// redirect는 Model 값을 다 버리고 이동시킨다. model 데이터도 함께 이동해야 하는 경우 forward 사용해야 한다.
+		// 하지만 RedirectAttributes 를 사용하면 가지고 이동할 수 있다.
+		RA.addFlashAttribute("msg", "정상 처리 되었습니다.");
+		return "redirect:/board/boardList";
 	}
 }

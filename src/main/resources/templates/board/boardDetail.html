@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>글 1개에 대한 정보 출력</h3>
+	<table>
+		<tr>
+			<th>번호</th>
+			<th>작성자</th>
+			<th>제목</th>
+			<th>내용</th>
+			<th>등록일</th>
+		</tr>
+		<tr>
+			<td>[[${vo.bno}]]</td>
+			<td>[[${vo.writer}]]</td>
+			<td>[[${vo.title}]]</td>
+			<td>[[${vo.content}]]</td>
+			<td>[[${#temporals.format(vo.regdate, 'yy-MM-dd')}]]</td>
+		</tr>
+	</table>
+</body>
+</html>
