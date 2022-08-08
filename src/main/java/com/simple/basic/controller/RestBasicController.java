@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.simple.basic.command.RestVO;
 
-@RestController
+@RestController //REST 컨트롤러는 rest controller + responseBody 어노테이션이 함께 있다.
 public class RestBasicController {
 	// consumer : 반드시 이 타입으로 데이터를 달라는 의미 default = JSON
 	// produces : 해당 타입으로 응답하겠다는 의미 default = JSON

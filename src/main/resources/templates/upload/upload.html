@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<form action="upload_ok" method="post" enctype="multipart/form-data">
+		파일선택 : <input type="file" name="file"><br>
+		<input type="submit" value="파일업로드">
+		
+	</form>
+	
+	<hr>
+	<h3>multiple 옵션을 이용한 다중파일 업로드</h3>
+	
+	<form action="upload_ok2" method="post" enctype="multipart/form-data">
+		파일선택 : <input type="file" name="file" multiple="multiple"><br>
+		<input type="submit" value="파일업로드">
+		
+	</form>	
+	
+	<hr>
+	<h3>복수 태그를 이용해서 단일 파일을 여러 개 업로드</h3>
+	 
+	<form action="upload_ok3 "method="post" enctype="multipart/form-data">
+		파일선택 : <input type="file" name="file"><br>
+		파일선택 : <input type="file" name="file"><br>
+		파일선택 : <input type="file" name="file"><br>
+		<input type="submit" value="파일업로드">
+		
+	</form>
+	
+	<hr>
+	<h3>비동기를 이용한 업로드</h3>
+	
+	<div>
+		작성자:<input type="text" name="writer"><br>
+		파일선택:<input type="file" name="file_a"><br>
+		<button type="button" id="btn">비동기업로드실행</button>
+	</div>
+	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		
+		$("#btn").click(function(){
+			var writer = $("input[name='writer']").val();
+			var file = $("input[name='file_a']");
+			/* console.log(file);
+			console.log(file[0]); //console에 태그가 나온다.
+			console.log(file[0].files[0]); //파일 데이터 수집 */
+			
+			//폼 객체
+			var formData = new FormData();
+			formData.append("writer", writer); //문자열
+			formData.append("file", file[0].files[0]); //파일 데이터
+			
+			$.ajax({
+				type: "post",
+				url: "upload_ok4",
+				processData: false, //폼데이터의 ? 키=값 형태로 변형되는 것을 막는다.
+				contentType: false, //false 선언 시 multipart/form-data 형식으로 들어간다.
+				data: formData, //JSON 형식이 아님
+				success: function(data){
+					console.log("success");
+				},
+				error: function(error, status) {
+					
+				}
+			})
+		})		
+		
+	</script>
+
+</body>
+</html>
