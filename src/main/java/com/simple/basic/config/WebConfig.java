@@ -1,7 +1,12 @@
 package com.simple.basic.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import com.simple.basic.util.intercepter.UserAuthHandler;
 
 @Configuration //스프링 설정파일로 선언
 public class WebConfig implements WebMvcConfigurer {
@@ -44,5 +49,25 @@ public class WebConfig implements WebMvcConfigurer {
 //	public BoardServiceImpl boardServiceImpl() {
 //		return new BoardServiceImpl();
 //	}
+	
+	///////////////////////////////////////////////////////////////////////////////
+	//인터셉트 사용 시 Bean 생성해야 함
+	
+	@Bean
+	public UserAuthHandler userAuthHandler() {
+		return new UserAuthHandler();
+	}
+
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		
+		registry.addInterceptor( userAuthHandler() ) //인터셉터 등록
+		.addPathPatterns("/user/**") //user로 시작하는 모든 경로를 인터셉터에 등록하겠다. 앞을 안적으면 JS 쪽에서도 다 동작해버리게 된다.
+		.addPathPatterns("/memo/**") // memo로 시작하는 모든 경로를 인터셉터에 등록하겠다는 뜻.
+		.excludePathPatterns("/user/login"); // user/login에서는 intercept 동작이 빠지게 된다.
+		
+	}
+	
+	
 
 }
