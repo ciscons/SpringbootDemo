@@ -9,12 +9,13 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import com.simple.basic.command.UserVO;
 
 public class UserAuthHandler implements HandlerInterceptor{
-
+	int i = 0;
+	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		
-		System.out.println("유저 인터셉터 실행됨");
+		System.out.println("유저 인터셉터 실행됨" + i++);
 		//세션 검사 작업
 		HttpSession session = request.getSession();
 		UserVO user = (UserVO)session.getAttribute("user");

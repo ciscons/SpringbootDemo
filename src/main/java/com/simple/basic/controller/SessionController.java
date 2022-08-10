@@ -43,9 +43,9 @@ public class SessionController {
 	@GetMapping("/success")
 	public String success(HttpSession session) {
 		
-		if (session.getAttribute("user") == null) {
-			return "redirect:/user/login";
-		}
+//		if (session.getAttribute("user") == null) {
+//			return "redirect:/user/login";
+//		}
 		
 		return "user/success";
 	}
@@ -53,9 +53,9 @@ public class SessionController {
 	@GetMapping("/mypage")
 	public String mypage(HttpSession session) {
 		
-		if (session.getAttribute("user") == null) {
-			return "redirect:/user/login";
-		}
+//		if (session.getAttribute("user") == null) {
+//			return "redirect:/user/login";
+//		}
 		
 		return "user/mypage";
 	}
