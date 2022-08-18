@@ -1,16 +1,21 @@
 package com.simple.basic.command;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class ValidVO {
 
 	// Spring boot에 JPA 라이브러리를 사용하는 경우 기본타입은 null을 사용할 수 없기 때문에 wrapper class를 사용 한다.
