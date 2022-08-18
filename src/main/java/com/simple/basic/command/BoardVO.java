@@ -20,6 +20,6 @@ public class BoardVO {
 	private String title;
 	private String content;
 	private LocalDateTime regdate;
-	//asdfasdfasdfsadf
+	//충돌 테스트
 
 }
