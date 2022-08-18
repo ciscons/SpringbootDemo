@@ -24,5 +24,5 @@ public class MemoVO {
 	@Pattern(message ="비밀번호는 숫자 4자리 입니다.", regexp="[0-9]{4}")
 	private String pw;
 	private char secret;
-	
+	//충돌 테스트입니다.
 }
