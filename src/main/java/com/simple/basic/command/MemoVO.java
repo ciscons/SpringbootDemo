@@ -1,17 +1,18 @@
 package com.simple.basic.command;
 
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@ToString
 public class MemoVO {
 
 	private Integer mno;
@@ -23,5 +24,5 @@ public class MemoVO {
 	@Pattern(message ="비밀번호는 숫자 4자리 입니다.", regexp="[0-9]{4}")
 	private String pw;
 	private char secret;
-	
+	//충돌 테스트입니다.
 }

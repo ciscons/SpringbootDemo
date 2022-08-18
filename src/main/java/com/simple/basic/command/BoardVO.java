@@ -21,4 +21,6 @@ public class BoardVO {
 	private String content;
 	private LocalDateTime regdate;
 	//충돌 발생
+	//테스트입니다.
+
 }
