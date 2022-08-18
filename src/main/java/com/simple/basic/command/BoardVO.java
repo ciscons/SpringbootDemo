@@ -20,5 +20,5 @@ public class BoardVO {
 	private String title;
 	private String content;
 	private LocalDateTime regdate;
-	
+	//충돌 발생
 }
